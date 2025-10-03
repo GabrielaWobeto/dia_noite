@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Dia ou Noite</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            transition: background 0.5s;
+        }
+        .dia {
+            background: #ade2f7;
+            color: #222;
+        }
+        .noite {
+            background: #2c3e50;
+            color: #fff;
+        }
+        .status {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Agora é:</h1>
+    <div class="status" id="status"></div>
+    <script>
+        function verificarDiaNoite() {
+            const hora = new Date().getHours();
+            const status = document.getElementById('status');
+            if (hora >= 6 && hora < 18) {
+                document.body.className = 'dia';
+                status.textContent = 'Dia ☀️';
+            } else {
+                document.body.className = 'noite';
+                status.textContent = 'Noite 🌙';
+            }
+        }
+        verificarDiaNoite();
+    </script>
+</body>
+</html>
